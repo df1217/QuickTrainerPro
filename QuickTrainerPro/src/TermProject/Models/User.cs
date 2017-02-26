@@ -7,6 +7,7 @@ namespace TermProject.Models
 {
     public class User
     {
+        //Backing variables
         private List<Review> reviews;
         private List<Connection> connections;
         private List<Message> messages;
