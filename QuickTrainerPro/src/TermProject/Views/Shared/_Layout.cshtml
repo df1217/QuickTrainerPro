@@ -3,9 +3,34 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+       
+        
+
+
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                <li>@Html.ActionLink("Trainers", "Index", "Trainers")</li>
+
+
+            </ul>
+            
+    </nav>
     <div>
         @RenderBody()
     </div>
