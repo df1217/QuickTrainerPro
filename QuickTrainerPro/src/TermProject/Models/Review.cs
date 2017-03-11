@@ -13,6 +13,6 @@ namespace TermProject.Models
         public DateTime ReviewDate { get; set; }
         public string Body { get; set; }
         public int Rating { get; set; }
-        public bool IsFlagged { get; set; }
+       
     }
 }

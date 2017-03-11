@@ -28,7 +28,8 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "1.1.0",
           "Microsoft.Extensions.Configuration.Json": "1.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
-          "Microsoft.AspNetCore.StaticFiles": "1.1.0"
+          "Microsoft.AspNetCore.StaticFiles": "1.1.0",
+          "Microsoft.AspNetCore.Http.Features": "1.1.0"
         },
         "runtime": {
           "TermProject.dll": {}

@@ -30,7 +30,7 @@ namespace TermProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-                               Configuration["Data:QuickTrainerProDb:ConnectionString"]));
+                                  Configuration["Data:QuickTrainerProDb:ConnectionString"]));
 
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
                 Configuration["Data:QuickTrainerProIdentity:ConnectionString"]));
