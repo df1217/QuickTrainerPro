@@ -9,6 +9,8 @@ namespace TermProject.Models
     {
         public int SpecialtyID { get; set; }
         public string Name { get; set; }
-       
+
+        public List<ProfileSpecialty> PSpecialties { get; set; }
+
     }
 }
