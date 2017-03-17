@@ -38,6 +38,8 @@ namespace TermProject
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
 
+            services.AddTransient<ISpecialtyRepository, SpecialtyRepository>();
+
             services.AddMvc();
            // services.AddTransient<IMessageRepository, AuthorRepository>();
            // services.AddTransient<IReviewRepository, BookRepository>();

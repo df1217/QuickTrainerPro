@@ -78,7 +78,7 @@ public ViewResult Login()
     {
         if (ModelState.IsValid)
         {
-            User user = await userManager.FindByNameAsync(vm.UserName);
+            User user = await userManager.FindByEmailAsync(vm.Email);
             if (user != null)
             {
                 await signInManager.SignOutAsync();
@@ -90,7 +90,7 @@ public ViewResult Login()
                     return RedirectToAction("Index", "Home");
                 }
             }
-            ModelState.AddModelError(nameof(LoginViewModel.UserName),
+            ModelState.AddModelError(nameof(LoginViewModel.Email),
                 "Invalid user or password");
         }
         return View(vm);

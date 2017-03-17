@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-*",
+   "testRunner": "xunit",
+
+  "dependencies": {
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.1"
+    },
+    "System.Linq": "4.3.0",
+    "TermProject": "1.0.0-*",
+    "xunit": "2.1.0"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports":  ["dotnet5.6", "portable-net45+win8"]
+    }
+
+  }
+}
