@@ -6,8 +6,9 @@ using TermProject.Models;
 
 namespace TermProject.Repositories
 {
-   public interface ISpecialtyRepository
+    public interface IProfileRepository
     {
-        IEnumerable<Specialty> GetAllSpecialties();
+        IEnumerable<Profile> GetAllProfiles();
+        List<Profile> GetProfilesByCity(string city);
     }
 }

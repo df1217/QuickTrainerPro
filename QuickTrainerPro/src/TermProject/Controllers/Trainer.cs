@@ -8,15 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TermProject.Controllers
 {
-    public class TrainersController : Controller
+    public class Trainer : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
-        {
-            return View();
-        }
-        [HttpGet("Trainers/Profile/")]
-        public IActionResult Profile()
         {
             return View();
         }

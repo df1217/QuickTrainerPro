@@ -161,6 +161,8 @@ namespace TermProject.Migrations.AppIdentityDb
 
                     b.Property<bool>("TwoFactorEnabled");
 
+                    b.Property<int>("UserID");
+
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 

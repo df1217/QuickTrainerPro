@@ -37,8 +37,8 @@ namespace TermProject
 
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
-
-            services.AddTransient<ISpecialtyRepository, SpecialtyRepository>();
+            
+            services.AddTransient<IProfileRepository, ProfileRepository>();
 
             services.AddMvc();
            // services.AddTransient<IMessageRepository, AuthorRepository>();
@@ -61,7 +61,7 @@ namespace TermProject
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
-          //  SeedData.EnsurePopulated(app);
+            SeedData.EnsurePopulated(app).Wait();
         }
     }
     

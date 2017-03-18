@@ -8,8 +8,8 @@ using TermProject.Repositories;
 namespace TermProject.Migrations.AppIdentityDb
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20170317005049_user")]
-    partial class user
+    [Migration("20170318204053_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -161,6 +161,8 @@ namespace TermProject.Migrations.AppIdentityDb
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<int>("UserID");
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);

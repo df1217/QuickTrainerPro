@@ -9,28 +9,24 @@ using TermProject.Repositories;
 
 namespace TermProject.Controllers
 {
-    public class HomeController : Controller
+    public class ProfilesController : Controller
     {
-        
+        private IProfileRepository profileRepo;
+
+        public ProfilesController(IProfileRepository repo)
+        {
+            profileRepo = repo;
+        }
 
         // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
         }
-        [HttpGet("Home/About/")]
-        public IActionResult About()
+        [HttpGet("Profiles/Profile/")]
+        public IActionResult Profile()
         {
             return View();
         }
-        [HttpGet("Home/About/Contact/")]
-        public IActionResult Contact()
-        {
-            return View();
-        }
-
-        
-
-
     }
 }
