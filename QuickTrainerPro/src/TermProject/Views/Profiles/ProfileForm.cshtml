@@ -6,10 +6,16 @@
 <h1>Add Your Message</h1>
 
 
-<form asp-controller="Profiles" asp-action="ProfileForm" method="post">
+<form asp-controller="Profiles" asp-action="ProfileForm" method="post" >
+
+
+
     <div class="form-group">
+
+        
+
         <label asp-for="City"></label>
-        <select asp-for="City">
+        <select asp-for="City" class="form-control" col-sm>
             <option value="Eugene">Eugene</option>
             <option value="Salem">Salem</option>
             <option value="Portland">Portland</option>

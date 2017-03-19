@@ -63,7 +63,7 @@ namespace TermProject.Controllers
                 profile.Reviews.Add(review);
                 profileRepo.Update(profile);
 
-                return RedirectToAction("Details");
+                return RedirectToAction("Index", "Profiles");
             }
             else
             {

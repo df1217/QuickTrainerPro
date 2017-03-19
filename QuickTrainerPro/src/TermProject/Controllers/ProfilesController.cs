@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TermProject.Repositories;
 using TermProject.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Hosting;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,13 +14,17 @@ namespace TermProject.Controllers
 {
     public class ProfilesController : Controller
     {
+        private IHostingEnvironment _environment;
+
         private IProfileRepository profileRepo;
         private UserManager<User> userManager;
 
-        public ProfilesController(IProfileRepository repo, UserManager<User> userMgr)
-        {
+
+        public ProfilesController(IProfileRepository repo, UserManager<User> userMgr, IHostingEnvironment environment)
+        { 
             profileRepo = repo;
             userMgr = userManager;
+            environment = _environment;
         }
 
         // GET: /<controller>/
@@ -60,9 +65,10 @@ namespace TermProject.Controllers
         [HttpPost]
         public async Task<IActionResult> ProfileForm([Bind("City", "Descripiton")]Profile profile)
         {
-            
-            string name = HttpContext.User.Identity.Name;
-            profile.ProfileUser = await userManager.FindByNameAsync(name);
+            User user = await userManager.FindByNameAsync(User.Identity.Name);
+
+            // string name = HttpContext.User.Identity.Name;
+            profile.ProfileUser = user;
             profileRepo.Add(profile);
             
             return RedirectToAction("Index", "Profiles");
