@@ -39,5 +39,23 @@ namespace TermProject.Repositories
             return context.SaveChanges();
         }
 
+        public int Add(Profile profile)
+        {
+            context.Profiles.Add(profile);
+            return context.SaveChanges();
+        }
+
+        public Profile DeleteProfile(int profileID)
+        {
+            Profile dProfile = context.Profiles
+                .FirstOrDefault(m => m.ProfileID == profileID);
+            if (dProfile != null)
+            {
+                context.Profiles.Remove(dProfile);
+                context.SaveChanges();
+            }
+            return dProfile;
+        }
+
     }
 }

@@ -15,9 +15,9 @@ namespace TermProject.Controllers
     public class ReviewController : Controller
     {
         private IProfileRepository profileRepo;
-        private UserManager<Profile> userManager;
+        private UserManager<User> userManager;
 
-        public ReviewController(UserManager<Profile> userMgr, IProfileRepository repo)
+        public ReviewController(UserManager<User> userMgr, IProfileRepository repo)
         {
             profileRepo = repo;
             userManager = userMgr;
@@ -39,7 +39,7 @@ namespace TermProject.Controllers
         public async Task<IActionResult> ReviewForm(ReviewViewModel reviewVm)
         {
             string body = reviewVm.ProfileReview.Body;
-            if (string.IsNullOrEmpty(body) || body.IndexOf(" ", System.StringComparison.Ordinal) < 1)
+            if (string.IsNullOrEmpty(body))
             {
                 
                 string prop = "ProfileReview.Body";

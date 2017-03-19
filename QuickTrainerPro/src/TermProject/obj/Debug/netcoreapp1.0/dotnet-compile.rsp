@@ -207,7 +207,6 @@
 --resource:"C:\Users\Dell\Desktop\QuickTrainerPro\QuickTrainerPro\src\TermProject\obj\Debug\netcoreapp1.0\TermProjectdotnet-compile.deps.json",TermProject.deps.json
 C:\Users\Dell\Desktop\QuickTrainerPro\QuickTrainerPro\src\TermProject\Program.cs
 C:\Users\Dell\Desktop\QuickTrainerPro\QuickTrainerPro\src\TermProject\Startup.cs
-C:\Users\Dell\Desktop\QuickTrainerPro\QuickTrainerPro\src\TermProject\Controllers\Admin.cs
 C:\Users\Dell\Desktop\QuickTrainerPro\QuickTrainerPro\src\TermProject\Controllers\AuthController.cs
 C:\Users\Dell\Desktop\QuickTrainerPro\QuickTrainerPro\src\TermProject\Controllers\HomeController.cs
 C:\Users\Dell\Desktop\QuickTrainerPro\QuickTrainerPro\src\TermProject\Controllers\ProfilesController.cs

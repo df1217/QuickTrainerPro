@@ -12,5 +12,11 @@ namespace TermProject.Repositories
         List<Profile> GetProfilesByCity(string city);
 
         int Update(Profile profile);
+
+        int Add(Profile profile);
+
+        Profile DeleteProfile(int profileID);
+
+
     }
 }
