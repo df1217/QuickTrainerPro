@@ -23,7 +23,7 @@ namespace TermProject.Controllers
         public ProfilesController(IProfileRepository repo, UserManager<User> userMgr, IHostingEnvironment environment)
         { 
             profileRepo = repo;
-            userMgr = userManager;
+            userManager = userMgr;
             environment = _environment;
         }
 
@@ -69,6 +69,7 @@ namespace TermProject.Controllers
 
             // string name = HttpContext.User.Identity.Name;
             profile.ProfileUser = user;
+            profile.imagePath = "/df.jpg";
             profileRepo.Add(profile);
             
             return RedirectToAction("Index", "Profiles");

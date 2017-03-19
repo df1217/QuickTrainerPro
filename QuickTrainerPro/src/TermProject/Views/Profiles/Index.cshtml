@@ -10,6 +10,8 @@
     new { city = "Salem" })<br />
 @Html.ActionLink("Trainers in Portland", "ProfilesByCity", "Profiles",
     new { city = "Portland" })<br />
+@Html.ActionLink("Trainers in Other Cities", "ProfilesByCity", "Profiles",
+    new { city = "Other" })<br />
 <h2>List of trainers in @ViewBag.City </h2>
 <table class="table">
     
@@ -25,7 +27,7 @@
                 </td>
                 
                 <td>
-                    <img src=@item.imagePath height="30" width"30"/>
+                    <img src=@item.imagePath height="30" width ="30"/>
                 </td>
                
                 <td>

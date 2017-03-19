@@ -28,7 +28,8 @@ namespace TermProject.Repositories
         {
             return (from p in context.Profiles
                     where p.City.Contains(city)
-                    select p).ToList();
+                    select p).Include(p => p.ProfileUser)
+                .Include("Reviews.From").ToList();
         }
 
 
