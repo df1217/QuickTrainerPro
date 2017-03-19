@@ -31,6 +31,8 @@ namespace TermProject.Repositories
                     select p).ToList();
         }
 
+
+
         public int Update(Profile profile)
         {
             context.Profiles.Update(profile);

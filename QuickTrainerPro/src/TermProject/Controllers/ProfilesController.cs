@@ -41,5 +41,14 @@ namespace TermProject.Controllers
 
             return View(profile);
         }
+
+        public IActionResult ProfilesByCity(string city)
+        {
+            ViewBag.City = city ;
+            return View(profileRepo.GetProfilesByCity(city).ToList());
+        }
+
+
+
     }
 }

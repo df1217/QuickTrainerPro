@@ -24,7 +24,7 @@ namespace TermProject.Controllers
         }
 
         [HttpGet]
-        public ViewResult ReviewForm( int id)
+        public ViewResult ReviewForm(int id)
         {
             var reviewVm = new ReviewViewModel();
             reviewVm.ProfileID = id;

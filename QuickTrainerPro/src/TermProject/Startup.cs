@@ -39,8 +39,10 @@ namespace TermProject
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
             
             services.AddTransient<IProfileRepository, ProfileRepository>();
+            
 
             services.AddMvc();
+            services.AddSession();
            // services.AddTransient<IMessageRepository, AuthorRepository>();
            // services.AddTransient<IReviewRepository, BookRepository>();
         }
@@ -57,6 +59,7 @@ namespace TermProject
 
             app.UseIdentity();
             app.UseStatusCodePages();
+            app.UseSession();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseMvc(routes =>
