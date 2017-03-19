@@ -1,0 +1,21 @@
+﻿@model Profile
+
+<h1>@Model.ProfileUser.UserName</h1>
+<img src="@Model.imagePath" height="80" witdh ="80" />
+
+<h2>Description</h2>
+<p>@Model.Descripiton</p>
+
+@foreach (var r in Model.Reviews)
+{
+    @r.Body <span>Rating: </span><br />
+
+    @r.Rating
+    
+        <span>Reviewed by: </span>@r.From.UserName
+}
+
+<p>
+    @Html.ActionLink("Add a review", "ReviewForm", "Review",
+    new { Id = Model.ProfileID })
+</p>

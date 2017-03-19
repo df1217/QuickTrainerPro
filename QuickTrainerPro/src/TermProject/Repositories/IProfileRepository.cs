@@ -10,5 +10,7 @@ namespace TermProject.Repositories
     {
         IEnumerable<Profile> GetAllProfiles();
         List<Profile> GetProfilesByCity(string city);
+
+        int Update(Profile profile);
     }
 }

@@ -95,5 +95,15 @@ public ViewResult Login()
         }
         return View(vm);
     }
-}
+        public async Task<RedirectResult> Logout(string returnUrl = "/")
+        {
+            await signInManager.SignOutAsync();
+            return Redirect(returnUrl);
+        }
+
+        public ViewResult AccessDenied()
+        {
+            return View();
+        }
+    }
 }

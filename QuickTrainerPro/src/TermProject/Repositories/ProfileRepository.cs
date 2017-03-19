@@ -30,6 +30,12 @@ namespace TermProject.Repositories
                     where p.City.Contains(city)
                     select p).ToList();
         }
-    
+
+        public int Update(Profile profile)
+        {
+            context.Profiles.Update(profile);
+            return context.SaveChanges();
+        }
+
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TermProject.Controllers
 {
-    public class Trainer : Controller
+    public class TrainerController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()

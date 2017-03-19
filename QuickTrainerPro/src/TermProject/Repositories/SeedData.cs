@@ -19,17 +19,17 @@ namespace TermProject.Repositories
             // Add a user for testing
             string firstName = "DF";
             string lastName = "Frank";
-            string username = firstName + lastName;
+            string username = $"{firstName} {lastName}";
             string email = "df@fake.com";
-            string password = "test";
+            string password = "Test123!";
             string role = "Admin";
 
             UserManager<User> userManager = app.ApplicationServices.GetRequiredService<UserManager<User>>();
             RoleManager<IdentityRole> roleManager = app.ApplicationServices.GetRequiredService<RoleManager<IdentityRole>>();
             if (!context.Profiles.Any())
             {
-                
-                User user = await userManager.FindByEmailAsync(email);
+
+                User user = await userManager.FindByNameAsync(username);
                 if (user == null)
                 {
                     user = new User { FirstName = firstName, LastName = lastName, UserName = username, Email = email };
@@ -49,7 +49,7 @@ namespace TermProject.Repositories
                 Profile profile = new Profile
                 {
                     ProfileUser = user,
-                    imagePath = "~/df.jpg",
+                    imagePath = "/df.jpg",
                     Descripiton = "This is a test",
                     City = "Eugene"
                     
@@ -65,7 +65,7 @@ namespace TermProject.Repositories
                  profile = new Profile
                 {
                     ProfileUser = user,
-                    imagePath = "~/df.jpg",
+                    imagePath = "/df.jpg",
                     Descripiton = "This is a test2",
                     City = "Eugene",
                     

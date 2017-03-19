@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TermProject.Models
 {
@@ -9,7 +10,10 @@ namespace TermProject.Models
         public int UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-       
-        
+
+        public static implicit operator User(Profile v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

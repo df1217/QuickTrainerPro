@@ -1,0 +1,26 @@
+﻿@model ReviewViewModel
+
+@{
+    ViewBag.Title = "Review";
+}
+<h1>Enter a Review</h1>
+
+<form asp-controller="Review" asp-action="ReviewForm" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input asp-for="ProfileID" type="hidden" />
+    
+    <p>
+        <label asp-for="ProfileReview.Body"></label>
+        <input asp-for="ProfileReview.Body" />
+        <span asp-validation-for="ProfileReview.Body" class="text-danger"></span>
+    </p>
+
+    <p>
+        <label asp-for="ProfileReview.Rating"></label>
+        <input asp-for="ProfileReview.Rating" />
+        <span asp-validation-for="ProfileReview.Rating" class="text-danger"></span>
+    </p>
+
+    <button type="submit">Post</button>
+</form>
