@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using TermProject.ViewModels;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,7 +36,8 @@ namespace TermProject.Controllers
             ViewBag.City = "Oregon";
             return View(profileRepo.GetAllProfiles().ToList());
         }
-
+        
+  
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -52,22 +54,25 @@ namespace TermProject.Controllers
             return View(profile);
         }
 
+        
+
         public IActionResult ProfilesByCity(string city)
         {
             ViewBag.City = city ;
             return View(profileRepo.GetProfilesByCity(city).ToList());
         }
-
+        [Authorize]
         [HttpGet]
         public IActionResult ProfileForm()
         {
             return View();
         }
-        
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> ProfileForm(ProfileViewModel ProfileVm)
         {
             User user = await userManager.FindByNameAsync(User.Identity.Name);
+            await userManager.AddToRoleAsync(user, "TRAINER");
             Profile profile = new Models.Profile { City = ProfileVm.ProfileView.City, Descripiton = ProfileVm.ProfileView.Descripiton };
             var uploads = Path.Combine(_environment.WebRootPath);
             if (ProfileVm.File.Length > 0 )

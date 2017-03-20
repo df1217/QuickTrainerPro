@@ -53,8 +53,8 @@ namespace TermProject.Repositories
             if (dProfile != null)
             {
                 context.Profiles.Remove(dProfile);
-                context.SaveChanges();
             }
+            context.SaveChanges();
             return dProfile;
         }
 

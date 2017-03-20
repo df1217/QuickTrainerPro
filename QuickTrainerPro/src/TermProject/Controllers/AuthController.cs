@@ -45,8 +45,9 @@ namespace TermProject.Controllers
                 
 
                 IdentityResult result = await userManager.CreateAsync(user, vm.Password);
+                await userManager.AddToRoleAsync(user, "Member");
 
-            if (result.Succeeded)
+                if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Home");
             }

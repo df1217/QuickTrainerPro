@@ -28,6 +28,20 @@ namespace TermProject.Repositories
             return dReview;
         }
 
+        public int DeleteReviewByProfile(int ProfileID)
+        {
+            Profile p = context.Profiles.Where(prof => prof.ProfileID == ProfileID).SingleOrDefault();
+            //List<Review> revs = new List<Review>();
+            foreach (Review r in p.Reviews) {
+                context.Reviews.Remove(r);
+            }
+            //foreach(Review r in revs)
+            //{
+            //    context.Reviews.Remove(r);
+            //}
+            return context.SaveChanges();
+        }
+
         public IEnumerable<Review> GetAllReviews()
         {
             return context.Reviews.Include(r => r.From);

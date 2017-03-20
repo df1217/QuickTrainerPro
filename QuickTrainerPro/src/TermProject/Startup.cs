@@ -35,16 +35,17 @@ namespace TermProject
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
                 Configuration["Data:QuickTrainerProIdentity:ConnectionString"]));
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>(options => { options.Cookies.ApplicationCookie.LoginPath = "/Auth/Login"; })
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
             
             services.AddTransient<IProfileRepository, ProfileRepository>();
+            
             
 
             services.AddMvc();
             services.AddSession();
            // services.AddTransient<IMessageRepository, AuthorRepository>();
-           // services.AddTransient<IReviewRepository, BookRepository>();
+            services.AddTransient<IReviewRepository, ReviewRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

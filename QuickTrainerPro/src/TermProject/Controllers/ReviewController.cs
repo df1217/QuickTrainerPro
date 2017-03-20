@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TermProject.Repositories;
 using Microsoft.AspNetCore.Identity;
 using TermProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,7 +23,7 @@ namespace TermProject.Controllers
             profileRepo = repo;
             userManager = userMgr;
         }
-
+        [Authorize]
         [HttpGet]
         public ViewResult ReviewForm(int id)
         {

@@ -19,29 +19,32 @@ namespace TermProject.Repositories
             // Add a user for testing
             string firstName = "DF";
             string lastName = "Frank";
-            string username = $"{firstName} {lastName}";
+            string username = $"{firstName}{lastName}";
             string email = "df@fake.com";
             string password = "Test123!";
             string role = "Admin";
 
             UserManager<User> userManager = app.ApplicationServices.GetRequiredService<UserManager<User>>();
             RoleManager<IdentityRole> roleManager = app.ApplicationServices.GetRequiredService<RoleManager<IdentityRole>>();
+
             if (!context.Profiles.Any())
             {
+                await roleManager.CreateAsync(new IdentityRole() { Name = "Member" });
+                await roleManager.CreateAsync(new IdentityRole() { Name = "Trainer" });
 
                 User user = await userManager.FindByNameAsync(username);
                 if (user == null)
                 {
                     user = new User { FirstName = firstName, LastName = lastName, UserName = username, Email = email };
                     IdentityResult result = await userManager.CreateAsync(user, password);
-                    if (await roleManager.FindByNameAsync(role) == null)
-                    {
-                        await roleManager.CreateAsync(new IdentityRole(role));
-                        if (result.Succeeded)
+                    //if (await roleManager.FindByNameAsync(role) == null)
+                    //{
+                        IdentityResult resultCreate = await roleManager.CreateAsync(new IdentityRole(role));
+                        if (resultCreate.Succeeded)
                         {
-                            await userManager.AddToRoleAsync(user, role);
+                            await userManager.AddToRoleAsync(user, role.ToUpper());
                         }
-                    }
+                    //}
                 }
 
                 

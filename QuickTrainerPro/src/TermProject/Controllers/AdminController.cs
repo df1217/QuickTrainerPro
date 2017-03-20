@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using TermProject.Repositories;
 using TermProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TermProject.Controllers
 {
+    [Authorize(Roles = "Admin, Trainers")]
     public class AdminController : Controller
     {
 
@@ -27,12 +29,19 @@ namespace TermProject.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(profileRepo.GetAllProfiles().ToList()); 
         }
 
         public IActionResult ShowAllReviews()
         {
             return View(reviewRepo.GetAllReviews().ToList());
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var deleted = reviewRepo.DeleteReviewByProfile(id);
+            var profile = profileRepo.DeleteProfile(id);
+            return RedirectToAction("Index", "Admin");
         }
 
 

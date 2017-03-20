@@ -13,5 +13,7 @@ namespace TermProject.Repositories
 
         Review DeleteReview(int reviewID);
 
+        int DeleteReviewByProfile(int ProfileID);
+
     }
 }
