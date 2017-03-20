@@ -1,4 +1,4 @@
-﻿@model Profile
+﻿@model ProfileViewModel
 
 @{
     ViewBag.Title = "Add Profile";
@@ -6,7 +6,7 @@
 <h1>Add Your Message</h1>
 
 
-<form asp-controller="Profiles" asp-action="ProfileForm" method="post" >
+<form asp-controller="Profiles" asp-action="ProfileForm" method="post" enctype="multipart/form-data" >
 
 
 
@@ -14,8 +14,8 @@
 
         
 
-        <label asp-for="City"></label>
-        <select asp-for="City" class="form-control" col-sm>
+        <label asp-for="ProfileView.City"></label>
+        <select asp-for="ProfileView.City" class="form-control" col-sm>
             <option value="Eugene">Eugene</option>
             <option value="Salem">Salem</option>
             <option value="Portland">Portland</option>
@@ -24,9 +24,11 @@
         </select>
         
         <br />
-        <label asp-for="Descripiton"></label>
-        <textarea asp-for="Descripiton" class="form-control" rows="5"></textarea>
+        <label asp-for="ProfileView.Descripiton"></label>
+        <textarea asp-for="ProfileView.Descripiton" class="form-control" rows="5"></textarea>
         <br />
+        
+        <input type="file" asp-for="File"  />
         <button type="submit" class="btn btn-default">Post</button>
     </div>
 

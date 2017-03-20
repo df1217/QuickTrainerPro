@@ -7,6 +7,8 @@ using TermProject.Repositories;
 using TermProject.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
+using TermProject.ViewModels;
+using System.IO;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,7 +26,7 @@ namespace TermProject.Controllers
         { 
             profileRepo = repo;
             userManager = userMgr;
-            environment = _environment;
+            _environment = environment;
         }
 
         // GET: /<controller>/
@@ -63,13 +65,21 @@ namespace TermProject.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> ProfileForm([Bind("City", "Descripiton")]Profile profile)
+        public async Task<IActionResult> ProfileForm(ProfileViewModel ProfileVm)
         {
             User user = await userManager.FindByNameAsync(User.Identity.Name);
-
+            Profile profile = new Models.Profile { City = ProfileVm.ProfileView.City, Descripiton = ProfileVm.ProfileView.Descripiton };
+            var uploads = Path.Combine(_environment.WebRootPath);
+            if (ProfileVm.File.Length > 0 )
+            {
+                using (var fileStream = new FileStream(Path.Combine(uploads, ProfileVm.File.FileName), FileMode.Create))
+                {
+                    await ProfileVm.File.CopyToAsync(fileStream);
+                }
+            }
             // string name = HttpContext.User.Identity.Name;
             profile.ProfileUser = user;
-            profile.imagePath = "/df.jpg";
+            profile.imagePath = $"\\{ProfileVm.File.FileName}";
             profileRepo.Add(profile);
             
             return RedirectToAction("Index", "Profiles");
