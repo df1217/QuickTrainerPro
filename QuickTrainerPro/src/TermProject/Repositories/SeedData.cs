@@ -68,7 +68,7 @@ namespace TermProject.Repositories
                  profile = new Profile
                 {
                     ProfileUser = user,
-                    imagePath = "/df.jpg",
+                    imagePath = "/arnold.jpg",
                     Descripiton = "This is a test2",
                     City = "Eugene",
                     

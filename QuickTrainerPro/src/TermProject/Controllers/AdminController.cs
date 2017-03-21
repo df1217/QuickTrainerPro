@@ -29,20 +29,28 @@ namespace TermProject.Controllers
         }
         public IActionResult Index()
         {
-            return View(profileRepo.GetAllProfiles().ToList()); 
+            return View(reviewRepo.GetAllReviews().ToList()); 
         }
 
-        public IActionResult ShowAllReviews()
+        public IActionResult Profiles()
         {
-            return View(reviewRepo.GetAllReviews().ToList());
+            return View(profileRepo.GetAllProfiles().ToList());
         }
 
         public IActionResult Delete(int id)
         {
             var deleted = reviewRepo.DeleteReviewByProfile(id);
             var profile = profileRepo.DeleteProfile(id);
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Profiles", "Admin");
         }
+
+        public IActionResult DeleteReviews(int id)
+        {
+            reviewRepo.DeleteReview(id);
+            return RedirectToAction("Index", "Admin");
+
+        }
+
 
 
     }

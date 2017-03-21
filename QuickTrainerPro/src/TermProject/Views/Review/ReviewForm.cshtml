@@ -3,24 +3,33 @@
 @{
     ViewBag.Title = "Review";
 }
-<h1>Enter a Review</h1>
+<div class="container-fluid" style="width:750px">
+    <h1>Enter a Review</h1>
 
-<form asp-controller="Review" asp-action="ReviewForm" method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-controller="Review" asp-action="ReviewForm" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
 
-    <input asp-for="ProfileID" type="hidden" />
-    
-    <p>
-        <label asp-for="ProfileReview.Body"></label>
-        <input asp-for="ProfileReview.Body" />
-        <span asp-validation-for="ProfileReview.Body" class="text-danger"></span>
-    </p>
+        <input asp-for="ProfileID" type="hidden" />
 
-    <p>
-        <label asp-for="ProfileReview.Rating"></label>
-        <input asp-for="ProfileReview.Rating" />
-        <span asp-validation-for="ProfileReview.Rating" class="text-danger"></span>
-    </p>
+        <p>
+            <label asp-for="ProfileReview.Body"></label>
+            <input asp-for="ProfileReview.Body" class="form-control" col-md />
+            <span asp-validation-for="ProfileReview.Body" class="text-danger"></span>
+        </p>
 
-    <button type="submit">Post</button>
-</form>
+        <p>
+            <label asp-for="ProfileReview.Rating"></label>
+            <select asp-for="ProfileReview.Rating" class="form-control" col-md>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+
+            </select>
+            <span asp-validation-for="ProfileReview.Rating" class="text-danger"></span>
+        </p>
+
+        <button type="submit">Post</button>
+    </form>
+</div>
