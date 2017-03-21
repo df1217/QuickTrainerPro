@@ -10,6 +10,10 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -25,7 +29,15 @@
 
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                <li>@Html.ActionLink("Trainers", "Index", "Trainers")</li>
+
+                <li>@Html.ActionLink("Trainers", "Index", "Profiles")</li>
+
+                <li>@Html.ActionLink("Register", "Register", "Auth")</li>
+
+               <li>@Html.ActionLink("Make a Trainer Profile", "ProfileForm", "Profiles")</li> 
+
+                <li>@Html.ActionLink("Login", "Login", "Auth")</li>
+                <li>@Html.ActionLink("Logout", "Logout", "Auth")</li>
 
 
             </ul>

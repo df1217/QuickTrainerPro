@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace TermProject.Repositories
 {
-    public class IUserRepository
+    public class IdentitySeedData
     {
+
     }
 }

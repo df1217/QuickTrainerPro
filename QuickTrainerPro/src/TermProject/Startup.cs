@@ -30,17 +30,22 @@ namespace TermProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-                               Configuration["Data:QuickTrainerProDb:ConnectionString"]));
+                                  Configuration["Data:QuickTrainerProDb:ConnectionString"]));
 
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(
                 Configuration["Data:QuickTrainerProIdentity:ConnectionString"]));
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>(options => { options.Cookies.ApplicationCookie.LoginPath = "/Auth/Login"; })
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
+            
+            services.AddTransient<IProfileRepository, ProfileRepository>();
+            
+            
 
             services.AddMvc();
+            services.AddSession();
            // services.AddTransient<IMessageRepository, AuthorRepository>();
-           // services.AddTransient<IReviewRepository, BookRepository>();
+            services.AddTransient<IReviewRepository, ReviewRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,11 +60,17 @@ namespace TermProject
 
             app.UseIdentity();
             app.UseStatusCodePages();
+            app.UseSession();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
 
-          //  SeedData.EnsurePopulated(app);
+            SeedData.EnsurePopulated(app).Wait();
         }
     }
     

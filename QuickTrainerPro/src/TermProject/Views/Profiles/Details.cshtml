@@ -1,0 +1,58 @@
+﻿@model Profile
+
+
+<div class="container-fluid" style="width:750px">
+<img src="@Model.imagePath" height="200" witdh="200" class="img-circle center-block" />
+<h1 class="text-center">@Model.ProfileUser.FirstName</h1>
+<a><h6 class="text-center"> Email: @Model.ProfileUser.Email</h6></a>
+
+
+<h2 class="text-center">Description</h2>
+<blockquote class="text-center">@Model.Descripiton</blockquote>
+
+
+<h2 class="text-center">Reviews</h2>
+<h6 class="text-center">
+    @Html.ActionLink("Add a review", "ReviewForm", "Review",
+    new { Id = Model.ProfileID })
+</h6>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rating
+            </th>
+            <th>
+                Reviewer
+            </th>
+            <th>
+                Review
+            </th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        
+
+
+
+        @foreach (var r in Model.Reviews)
+        {
+            <tr>
+                <td>
+                    @r.Rating
+                </td>
+                <td>
+                    @r.From.UserName
+                </td>
+
+                <td>
+                    @r.Body
+                </td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+ </div>       

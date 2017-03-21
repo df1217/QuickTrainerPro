@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TermProject.Models
+namespace TermProject.ViewModels
 {
-    public class Specialty
+    public class UserViewModel
     {
-        public int SpecialtyID { get; set; }
         public string Name { get; set; }
-        public bool IsFlagged { get; set; }
-
+        public bool Authenticated { get; set; }
     }
 }

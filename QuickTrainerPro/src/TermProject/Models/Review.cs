@@ -8,11 +8,10 @@ namespace TermProject.Models
     public class Review
     {
         public int ReviewID { get; set; }
-        public User To { get; set; }
+     
         public User From { get; set; }
-        public DateTime ReviewDate { get; set; }
         public string Body { get; set; }
         public int Rating { get; set; }
-        public bool IsFlagged { get; set; }
+       
     }
 }

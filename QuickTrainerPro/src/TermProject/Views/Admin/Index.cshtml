@@ -1,0 +1,44 @@
+﻿@model List<Review>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rating
+            </th>
+            <th>
+                Reviewer
+            </th>
+            <th>
+                Review
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+
+
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>
+                    @r.Rating
+                </td>
+                <td>
+                    @r.From.UserName
+                </td>
+
+                <td>
+                    @r.Body
+                </td>
+                <td>
+                    <a asp-controller="Admin" asp-action="DeleteReviews" asp-route-id="@r.ReviewID">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

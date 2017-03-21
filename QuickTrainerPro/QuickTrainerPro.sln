@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TermProject", "src\TermProject\TermProject.xproj", "{ED8E1AFF-C945-4E25-A833-14F40431D49B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4E81DBF7-FEE8-47E1-834C-2F39A25CE13B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "QuickTrainerProTests", "tests\QuickTrainerProTests\QuickTrainerProTests.xproj", "{7434272B-F895-4481-A8AA-0B071743BC8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +26,16 @@ Global
 		{ED8E1AFF-C945-4E25-A833-14F40431D49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED8E1AFF-C945-4E25-A833-14F40431D49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED8E1AFF-C945-4E25-A833-14F40431D49B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7434272B-F895-4481-A8AA-0B071743BC8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7434272B-F895-4481-A8AA-0B071743BC8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7434272B-F895-4481-A8AA-0B071743BC8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7434272B-F895-4481-A8AA-0B071743BC8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ED8E1AFF-C945-4E25-A833-14F40431D49B} = {AD2E2ECC-3D3E-40BD-B059-6A2C1BBB79B0}
+		{7434272B-F895-4481-A8AA-0B071743BC8C} = {4E81DBF7-FEE8-47E1-834C-2F39A25CE13B}
 	EndGlobalSection
 EndGlobal
