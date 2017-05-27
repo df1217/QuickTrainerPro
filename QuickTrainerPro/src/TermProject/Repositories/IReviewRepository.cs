@@ -8,7 +8,7 @@ namespace TermProject.Repositories
 {
     public interface IReviewRepository
     {
-        IEnumerable<Review> GetAllReviews();
+        List<Review> GetAllReviews();
         
 
         Review DeleteReview(int reviewID);

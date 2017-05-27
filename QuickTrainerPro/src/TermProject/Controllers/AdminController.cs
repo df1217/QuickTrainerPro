@@ -21,13 +21,14 @@ namespace TermProject.Controllers
         private IReviewRepository reviewRepo;
         private UserManager<User> userManager;
 
+       
         public AdminController(IProfileRepository repo, IReviewRepository rRepo, UserManager<User> userMg)
         {
             profileRepo = repo;
             reviewRepo = rRepo;
             userManager = userMg;
         }
-        public IActionResult Index()
+        public ViewResult Index()
         {
             return View(reviewRepo.GetAllReviews().ToList()); 
         }

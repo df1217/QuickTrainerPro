@@ -4,8 +4,9 @@
 }
 <div class="container-fluid" style="width:750px">
     <h2>Register</h2>
-    <div asp-validation-summary="All" class="text-danger"></div>
+    
     <form asp-action="Register" method="post" enctype="multipart/form-data" asp-controller="Auth">
+        <div asp-validation-summary="All" class="text-danger"></div>
 
         <p>
             <label asp-for="FirstName" ></label><br />

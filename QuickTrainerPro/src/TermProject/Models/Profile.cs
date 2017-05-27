@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TermProject.Models
 {
@@ -12,6 +13,8 @@ namespace TermProject.Models
 
         public string imagePath { get; set; }
         public string City { get; set; }
+        [Required]
+        [StringLength(500, MinimumLength = 20)]
         public string Descripiton { get; set; }
 
         public List<Review> Reviews { get { return reviews; } }

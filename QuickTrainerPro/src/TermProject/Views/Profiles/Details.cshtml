@@ -1,11 +1,15 @@
-﻿@model Profile
+﻿
+
+@model Profile
+
 
 
 <div class="container-fluid" style="width:750px">
 <img src="@Model.imagePath" height="200" witdh="200" class="img-circle center-block" />
 <h1 class="text-center">@Model.ProfileUser.FirstName</h1>
-<a><h6 class="text-center"> Email: @Model.ProfileUser.Email</h6></a>
-
+    <div class="text-center">
+        <email mail-to=@Model.ProfileUser.Email>@Model.ProfileUser.Email</email>
+    </div>
 
 <h2 class="text-center">Description</h2>
 <blockquote class="text-center">@Model.Descripiton</blockquote>
@@ -34,9 +38,6 @@
 
     <tbody>
         
-
-
-
         @foreach (var r in Model.Reviews)
         {
             <tr>

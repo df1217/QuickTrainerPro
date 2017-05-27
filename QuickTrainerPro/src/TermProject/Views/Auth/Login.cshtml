@@ -4,8 +4,9 @@
 }
 <div class="container-fluid" style="width:750px">
     <h2>Login</h2>
-    <div asp-validation-summary="All" class="text-danger"></div>
+    
     <form asp-action="Login" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
         <p>
             <label asp-for="Email"></label><br />
             <input asp-for="Email" class="form-control" />

@@ -16,7 +16,9 @@ namespace TermProject.Controllers
     public class ReviewController : Controller
     {
         private IProfileRepository profileRepo;
+        private IReviewRepository reviewRepo;
         private UserManager<User> userManager;
+        
 
         public ReviewController(UserManager<User> userMgr, IProfileRepository repo)
         {

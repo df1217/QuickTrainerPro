@@ -49,7 +49,7 @@ namespace TermProject.Controllers
 
                 if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Auth");
             }
             else
             {
@@ -59,14 +59,11 @@ namespace TermProject.Controllers
                 }
             }
         }
-        // We get here either if the model state is invalid or if xreate user fails
+        
         return View(vm);
     }
     
-    public ViewResult Upload()
-    {
-        return View();
-    }
+   
     
     
 public ViewResult Login()
@@ -88,7 +85,7 @@ public ViewResult Login()
                             user, vm.Password, false, false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Profiles");
                 }
             }
             ModelState.AddModelError(nameof(LoginViewModel.Email),

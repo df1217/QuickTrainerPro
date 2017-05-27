@@ -5,10 +5,10 @@
 }
 <div class="container-fluid form-group" style="width:750px">
     <h1>Make A Profile</h1>
-
+    
 
     <form asp-controller="Profiles" asp-action="ProfileForm" method="post" enctype="multipart/form-data">
-
+        <div asp-validation-summary="All" class="text-danger"></div>
 
         <label asp-for="ProfileView.City"></label>
         <select asp-for="ProfileView.City" class="form-control" col-sm>
@@ -22,9 +22,11 @@
         <br />
         <label asp-for="ProfileView.Descripiton"></label>
         <textarea asp-for="ProfileView.Descripiton" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="ProfileView.Descripiton" class="text-danger"></span>
         <br />
 
         <input type="file" asp-for="File" />
+        <span asp-validation-for="File" class="text-danger"></span><br />
         <button type="submit" class="btn btn-default">Post</button>
     </form>
 </div>

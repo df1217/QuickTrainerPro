@@ -71,23 +71,29 @@ namespace TermProject.Controllers
         [HttpPost]
         public async Task<IActionResult> ProfileForm(ProfileViewModel ProfileVm)
         {
-            User user = await userManager.FindByNameAsync(User.Identity.Name);
-            await userManager.AddToRoleAsync(user, "TRAINER");
-            Profile profile = new Models.Profile { City = ProfileVm.ProfileView.City, Descripiton = ProfileVm.ProfileView.Descripiton };
-            var uploads = Path.Combine(_environment.WebRootPath);
-            if (ProfileVm.File.Length > 0 )
+            if (ModelState.IsValid)
             {
-                using (var fileStream = new FileStream(Path.Combine(uploads, ProfileVm.File.FileName), FileMode.Create))
+
+
+                User user = await userManager.FindByNameAsync(User.Identity.Name);
+                await userManager.AddToRoleAsync(user, "TRAINER");
+                Profile profile = new Models.Profile { City = ProfileVm.ProfileView.City, Descripiton = ProfileVm.ProfileView.Descripiton };
+                var uploads = Path.Combine(_environment.WebRootPath);
+                if (ProfileVm.File.Length > 0)
                 {
-                    await ProfileVm.File.CopyToAsync(fileStream);
+                    using (var fileStream = new FileStream(Path.Combine(uploads, ProfileVm.File.FileName), FileMode.Create))
+                    {
+                        await ProfileVm.File.CopyToAsync(fileStream);
+                    }
                 }
+                // string name = HttpContext.User.Identity.Name;
+                profile.ProfileUser = user;
+                profile.imagePath = $"\\{ProfileVm.File.FileName}";
+                profileRepo.Add(profile);
+
+                return RedirectToAction("Index", "Profiles");
             }
-            // string name = HttpContext.User.Identity.Name;
-            profile.ProfileUser = user;
-            profile.imagePath = $"\\{ProfileVm.File.FileName}";
-            profileRepo.Add(profile);
-            
-            return RedirectToAction("Index", "Profiles");
+            return View(ProfileVm);
 
         }
         

@@ -42,9 +42,9 @@ namespace TermProject.Repositories
             return context.SaveChanges();
         }
 
-        public IEnumerable<Review> GetAllReviews()
+        public List<Review> GetAllReviews()
         {
-            return context.Reviews.Include(r => r.From);
+            return context.Reviews.Include(r => r.From).ToList();
         }
     }
 }
